@@ -1,2 +1,2 @@
 # 进行covid-19预测
-# 给出day1-4的数据，来预测day5的positive cases
+# 给出一系列的特征，以及前四天的数据，来预测day5的positive cases
