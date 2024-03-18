@@ -225,8 +225,7 @@ class Classifier(nn.Module):
         #一层basicblock + Linear
         self.fc = nn.Sequential(
             BasicBlock(input_dim, hidden_dim),
-            *[BasicBlock(hidden_dim, hidden_dim) for _ in range(hidden_layers)],#生成一个由 hidden_layers 个 BasicBlock构成的列表；*用来调取列表中内容；
-            nn.Linear(hidden_dim, output_dim)#输出类别概率分布
+            *[BasicBlock(hidden_dim, hidden_dim) for _ in range(hidden_layers)],#隐藏层的数目
         )
 
     def forward(self, x):# 对父类的forward进行重写
