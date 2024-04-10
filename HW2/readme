@@ -1,17 +1,20 @@
+目的：做Phoneme Classification（音位分类预测），通过语音数据，预测音位
+
 数据集解释
-train：4286 audio feature ，一共2644158 frame （被整合成4268个pt文件，这些pt文件存在feat-train）
-test：1078 audio feature ，一共646268 frame（被整合成1078个pt文件，这些pt文件存在feat-test）
-frame：一帧frame设定为长25ms的音段，每次滑动10ms截得一个frame。每个frame经过MFCC处理，变成长度为39的向量。
-label：对于每个frame向量，数据集都提供了标签。标签有41类, 每个类代表一个phonem
+train：4286 audio feature ，一共2644158 frame （这些frame被整合成4268个 *.pt文件，这些pt文件存储在feat-train）
+test：1078 audio feature ，一共646268 frame（被整合成1078个 *.pt文件，这些pt文件存储在feat-test）
+frame：一帧frame设定为长25ms的音段，每次滑动10ms截得一个frame。每个frame经过MFCC处理，变成长度为39的向量。(39,)
+label：对于每个frame向量，数据集都提供了标签。标签有41类, 每个类代表一个phoneme
 
 数据集
-train_split ：audio feature（train）-4286
+train_split ：audio feature（train）-（4286，）
 train_label ：audio feature - label（类别）
-test_split ： audio feature （test）-1078
+test_split ： audio feature （test）-（1078，）
 feat
-  train：audio feature（train）文件名- 该audio feature对应的frame 
-  test：audio feature（test）文件名- 该audio feature对应的frame 
+  train：audio feature（train）文件名- 该audio feature对应的frame的集合
+  test：audio feature（test）文件名- 该audio feature对应的frame的集合
 
 
-比如，使用作业代码中的load_feat函数，将19-198-0008.pt读入后得到一个tensor变量，它的形状是[284, 39]，在train_labels.txt文件中找到19-198-0008这一行，共包含284个数字标签。
+比如，使用作业代码中的load_feat函数，将19-198-0008.pt读入后得到一个tensor变量，它的形状是[284, 39]--代表这个audio feature中有284个frame，每个frame是长度为39的向量
+在train_labels.txt文件中找到19-198-0008这一行，共包含284个数字标签--这284个数字标签对应的是每个frame的分类
 
