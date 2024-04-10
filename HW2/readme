@@ -4,7 +4,7 @@
   test_split（1078，）：1078 audio feature (用fname_test简单命名)，一共646268 frame（被整合成1078个 *.pt文件，这些pt文件存储在feat-test，每个fname_test.pt有若干个frame）
   frame：一帧frame设定为长25ms的音段，每次滑动10ms截得一个frame。每个frame经过MFCC处理，变成长度为39的向量。(39,)
   train_labels（4286，fname对应的frame的个数）：对于每个frame向量，数据集都提供了标签。标签有41类, 每个类代表一个phoneme
-  fname label （这里label的长度取决于fname里frame的个数）
+    fname label （这里label的长度取决于fname里frame的个数）
   feat
     train：fname_train.pt文件
     test：fname_test.pt文件
