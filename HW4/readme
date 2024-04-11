@@ -2,3 +2,19 @@
 2、数据集解释参考对应的pdf文件 -- 和作业二有点像
 3、这个模型其实用了Transformer的Encoder部分 -- 对输入特征进行处理
 4、后续的线性函数部分是对👆输出的特征进行分类
+
+数据集
+  metadata.json
+    n_mels -- 理解成frame的维度
+    "speakers":dict
+      key:speakerid
+      value:"feature_path" , "mel_len"
+      (解释：feature_path就是对应的uttr-*.pt文件；mel_len：该uttr-*.pt文件的长度--理解成frame的数量)
+  testdata.json
+    n_mels
+    utterances
+      feature_path
+      mel_len
+  mapping.json
+    speakerid：分类
+  uttr-*.pt --语音的数据文件
